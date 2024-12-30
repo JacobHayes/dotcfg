@@ -1,0 +1,9 @@
+--follow
+--glob=!.git/
+--hidden
+--no-require-git
+--smart-case
+--sort-files
+# Limit really long lines with just a preview
+--max-columns=150
+--max-columns-preview

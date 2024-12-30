@@ -1,0 +1,34 @@
+[git]
+fetch = ["origin", "upstream"]
+
+[revset-aliases]
+branches = "trunk() | trunk()..visible_heads()"
+open = "trunk() | (mine() ~ ::trunk()) ~ heads(empty())" # https://github.com/jj-vcs/jj/issues/2943#issuecomment-1925849130
+
+[signing]
+backend = "ssh"
+backends.ssh.allowed-signers = "~/.ssh/pubkeys/signers"
+key = "~/.ssh/pubkeys/github.pub"
+sign-all = true
+
+[snapshot]
+auto-track = "none()" # Avoid tracking new files by default, eg: scratch files, etc.
+
+[ui]
+default-command = "log"
+diff-editor = ":builtin"  # Prefer the builtin tool over nvim (until I know if I like it)
+merge-editor = ":builtin" # Prefer the builtin tool over nvim (until I know if I like it)
+
+[user]
+name = "Jacob Hayes"
+email = "root@jacobhayes.dev"
+
+
+# NOTE: See how I like the pager diffs and all and if I want to use delta like I do for git. Try the
+# following and see if I need / can move any of the delta config from the `~/.gitconfig`:
+#     [ui]
+#     pager = "delta"
+#     [ui.diff]
+#     format = "git"
+#
+# NOTE: See how I like the default diff tool, otherwise review: https://github.com/jj-vcs/jj/blob/main/docs/config.md#generating-diffs-by-external-command

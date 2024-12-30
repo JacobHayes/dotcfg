@@ -1,0 +1,9 @@
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "5GB",
+      "enabled": true
+    }
+  },
+  "experimental": true
+}

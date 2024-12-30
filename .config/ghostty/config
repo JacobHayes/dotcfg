@@ -1,0 +1,8 @@
+# TODO: Update to 
+font-family = MonaspiceNe NFM
+
+fullscreen = true
+mouse-hide-while-typing = true
+quit-after-last-window-closed = true
+theme = light:GruvboxLight, dark:GruvboxDarkHard
+window-step-resize = true

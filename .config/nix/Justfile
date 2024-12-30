@@ -1,0 +1,5 @@
+# Build and activate the current configuration.
+switch:
+    darwin-rebuild switch --flake '.#jrh'
+    # Set default shell, until this is resolved: https://github.com/LnL7/nix-darwin/issues/1237
+    if [[ "$SHELL" != *fish* ]]; then chsh -s /run/current-system/sw/bin/fish; fi

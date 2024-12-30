@@ -1,0 +1,77 @@
+[advice]
+  skippedCherryPicks = false
+[alias]
+  a   = add
+  b   = branch
+  c   = commit --signoff
+  cp  = cherry-pick
+  d   = diff
+  dt  = difftool
+  l   = log
+  m   = merge
+  pl  = pull
+  ps  = push
+  rb  = rebase --autostash
+  rbc = rebase --continue
+  rbi = rebase -i --autostash
+  rs  = restore
+  s   = status
+  st  = stash
+  sw  = switch
+  up  = pull --rebase --autostash
+  wt  = worktree
+[color]
+  ui = auto
+[commit]
+  gpgsign = true
+[config]
+  autosetuprebase = always
+[core]
+  autocrlf = input
+  pager = delta
+[credential]
+  helper = osxkeychain
+[credential "https://source.developers.google.com"]
+  helper = gcloud.sh
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  syntax-theme = gruvbox
+  hyperlinks = true
+[diff]
+  colorMoved = default
+  tool = nvimdiff
+[difftool]
+  prompt = off
+[format]
+  signoff = true
+[github]
+  user = JacobHayes
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = "~/.ssh/pubkeys/signers"
+[init]
+  defaultBranch = main
+[interactive]
+  diffFilter = delta --color-only
+[merge]
+  conflictstyle = diff3
+  tool = nvimdiff
+[pull]
+  rebase = true
+[push]
+  autoSetupRemote = true
+  default = simple
+[tag]
+  gpgsign = true
+[url "git@github.com:"]
+  pushInsteadOf = https://github.com/ # Use ssh keys, even if cloned with http
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[user]
+  name = Jacob Hayes
+  email = root@jacobhayes.dev
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKGTG8vkQvqHs+Hhg6ZlNuGLxjIJBHLit6LlRfA2r56N
+[rerere]
+	enabled = true
