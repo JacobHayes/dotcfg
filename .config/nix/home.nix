@@ -85,9 +85,7 @@
 
   # TODO: Determine whether I really want to 1) manage config files with nix
   # modules directly (which may have limitations), or 2) just have nix
-  # copy/link static files over [1], or 3) manage them completely externally.
-  #
-  # 1: eg: `home.file.".config/ghostty/config".source = ./config/ghostty/config;`
+  # copy/link static files over, or 3) manage them completely externally.
   programs = {
     direnv = {
       enable = true;

@@ -1,3 +1,3 @@
 function light
-    _set_profile light
+    _set_theme light
 end

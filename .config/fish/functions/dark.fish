@@ -1,3 +1,3 @@
 function dark
-    _set_profile dark
+    _set_theme dark
 end

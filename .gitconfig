@@ -34,9 +34,8 @@
 [credential "https://source.developers.google.com"]
   helper = gcloud.sh
 [delta]
-  navigate = true    # use n and N to move between diff sections
-  syntax-theme = gruvbox
   hyperlinks = true
+  navigate = true    # use n and N to move between diff sections
 [diff]
   colorMoved = default
   tool = nvimdiff

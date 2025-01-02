@@ -6,8 +6,12 @@
     shells = [ pkgs.fish ];
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.monaspace
+  ];
+
+  # https://daiderd.com/nix-darwin/manual/index.html#opt-homebrew.enable
   homebrew = {
-    # https://daiderd.com/nix-darwin/manual/index.html#opt-homebrew.enable
     enable = true;
     onActivation = {
       autoUpdate = true;

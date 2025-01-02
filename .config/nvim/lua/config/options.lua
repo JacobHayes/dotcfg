@@ -1,13 +1,3 @@
-vim.go.background = "dark" -- Set statically to provide fast startup without flickering (updated in ../plugins/colorscheme.lua)
-
--- Create an isolated venv for neovim:
--- - ~/.pyenv/versions/3.12.3/bin/python -m venv ~/.local/share/nvim/.venv
--- - ~/.local/share/nvim/.venv/bin/pip install --upgrade pynvim
--- vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/.venv/bin/python3")
-
--- Disabled:
---     vim.opt.lazyredraw = true -- don't redraw the screen when executing non typed commands (so eg: macros run faster)
---         This isn't compatible with noice.nvim...
 vim.opt.autowrite = false -- Disable auto write (LazyVim default is true)
 vim.opt.breakindent = true -- Indent wrapped text, rather than start at the beginning of the line
 vim.opt.hidden = false -- Don't hide buffers (and leave swap files around) when `:q` them but actually close them
