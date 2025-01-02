@@ -48,6 +48,7 @@ return {
         "codelldb", -- Debugger for rust, etc
         "css-lsp",
         "html-lsp",
+        "nil", -- nix
         "shellcheck",
         "shfmt",
         "sqlls",
