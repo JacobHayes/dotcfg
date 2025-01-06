@@ -25,10 +25,6 @@ vim.keymap.set({ "n", "t" }, "<C-q>", ":q<CR>", { silent = true })
 vim.keymap.set({ "n", "t" }, "<C-s>", ":w<CR>", { silent = true })
 vim.keymap.set({ "n", "t" }, "<C-x>", ":x<CR>", { silent = true })
 
--- fix block paste across nvim processes
-vim.keymap.set("n", "p", "<Plug>(miniyank-autoput)")
-vim.keymap.set("n", "P", "<Plug>(miniyank-autoPut)")
-
 -- H/L for faster ^/$
 vim.keymap.set({ "n", "x" }, "H", "<home>", { desc = "Jump to ^", noremap = true })
 vim.keymap.set({ "n", "x" }, "L", "<end>", { desc = "Jump to $", noremap = true })
