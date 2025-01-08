@@ -6,7 +6,7 @@ apply ARGS="":
 
 update:
     nix flake update
-    just switch
+    just apply
 
 diff-plists:
   echo "Reading current settings..."
