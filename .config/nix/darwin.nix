@@ -100,10 +100,45 @@
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null; # Set Git commit hash for darwin-version.
     # TODO: Look into additional system settings to configure.
     defaults = {
+      # NSGlobalDomain.AppleICUForce24HourTime = true;
+      # NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
+      # NSGlobalDomain.AppleMetricUnits = true;
+      NSGlobalDomain.ApplePressAndHoldEnabled = false; # Allow key repeat (eg: vim nav)
+      # NSGlobalDomain.AppleScrollerPagingBehavior = true;
+      # NSGlobalDomain.AppleTemperatureUnit = "Celsius";
+      NSGlobalDomain.InitialKeyRepeat = 15;
+      NSGlobalDomain.KeyRepeat = 2;
+      NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+      NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+      # NSGlobalDomain.NSWindowResizeTime = 0.0;
+      # NSGlobalDomain."com.apple.springing.delay" = .5;
+      # NSGlobalDomain."com.apple.springing.enabled" = true;
+      # NSGlobalDomain."com.apple.trackpad.scaling" = 1.5;
+      controlcenter.BatteryShowPercentage = true;
+      controlcenter.Bluetooth = true;
       dock.autohide = true;
       dock.mru-spaces = false;
+      dock.persistent-apps = [
+        "/Applications/Ghostty.app"
+        "/Applications/Safari.app"
+        "/Applications/Spotify.app"
+      ];
+      dock.persistent-others = [];
       finder.FXPreferredViewStyle = "clmv";
+
+      # Not all settings have direct integrations, but can still be overridden (without validation):
+      CustomUserPreferences = {
+        "com.apple.Safari" = {
+          AutoOpenSafeDownloads = false;
+          IncludeDevelopMenu = true;
+          # Open new tabs to the right of the current tab
+          WBSNewBlankTabPositionAppliesToAllBlankTabsPreferenceKey = 1;
+          WBSNewTabPositionPreferenceKey = 0;
+        };
+      };
     };
+    keyboard.enableKeyMapping = true;
+    keyboard.remapCapsLockToEscape = true;
     stateVersion = 5; # Used for backwards compatibility - before changing, read: `darwin-rebuild changelog`
   };
 

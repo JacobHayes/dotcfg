@@ -2,10 +2,11 @@ return {
   {
     "ellisonleao/gruvbox.nvim",
     opts = {
-      contrast = "hard",
+      -- NOTE: This is still broken - I can't see the autocomplete suggestions...
+      -- contrast = "hard",
       palette_overrides = {
-        dark0_hard = "#1b1b1b", -- Match Ghostty's Gruvbox Dark Hard
-        light0_hard = "#fbf1c7", -- Match Ghostty's Gruvbox Light (I don't like Light Hard)
+        dark0 = "#1b1b1b", -- Match Ghostty's Gruvbox Dark Hard
+        light0 = "#fbf1c7", -- Match Ghostty's Gruvbox Light (I don't like Light Hard)
       },
     },
   },

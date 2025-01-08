@@ -1,4 +1,7 @@
+Firebase
+SQLite
 TODO
+UI
 api
 artigraph
 asyncio
@@ -28,11 +31,14 @@ len
 metadata
 namespace
 neovim
+noqa
 nvim
 observability
 parallelization
 parallelize
+param
 parameters
+params
 performant
 piecewise
 prepend
@@ -45,6 +51,7 @@ rm
 runtime
 schemas
 shorthands
+sqlite
 str
 subscripted
 subscripting
