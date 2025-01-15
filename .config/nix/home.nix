@@ -1,10 +1,17 @@
 # Home Manager configuration
 #
 # https://nix-community.github.io/home-manager/options.xhtml
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   home = {
     homeDirectory = lib.mkForce "/Users/jacobhayes"; # https://github.com/nix-community/home-manager/issues/6036#issuecomment-2506160086
-    packages = with pkgs; [ # TODO: Consider paring these down and prefer per-project packages (eg: make, uv, etc).
+    packages = with pkgs; [
+      # TODO: Consider paring these down and prefer per-project packages (eg: make, uv, etc).
       _1password-cli
       bash
       bat
@@ -40,13 +47,14 @@
       less
       luajit
       luarocks
+      nixfmt-rfc-style
       nodejs_23
       openssh
       postgresql
       ripgrep
       rustup
       rye
-      sqlite
+      sqlite-interactive
       terraform
       tmux
       tree
@@ -55,33 +63,31 @@
       yq
     ];
     sessionPath = [
-      "/Applications/Tailscale.app/Contents/MacOS"
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
-      "$HOME/.rye/shims"
       "$HOME/bin"
+      "/Applications/Tailscale.app/Contents/MacOS"
     ];
     sessionVariables = {
       COPYFILE_DISABLE = "1"; # Turn off special handling of ._* files in tar, etc.
       GOPATH = "$HOME";
       JJ_CONFIG = "${config.xdg.configHome}/jj/config.toml";
-      PAGER = "less -FRS"; # Don't page if <1 screen, show colors, don't wrap
+      LESS = "-FRS"; # Don't page if <1 screen, show colors, don't wrap
       PYTHONDONTWRITEBYTECODE = "1";
       RIPGREP_CONFIG_PATH = "${config.xdg.configHome}/ripgreprc";
       SSH_AUTH_SOCK = "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
       TMPDIR = "/tmp"; # Override defaults to "/var/folders/..."
     };
     shellAliases = {
-      cfg="git --git-dir=$HOME/.dotcfg/ --work-tree=$HOME";
-      fd="fd --hidden";
-      fp="realpath";
-      g="git";
-      reload="exec $SHELL";
+      cfg = "git --git-dir=$HOME/.dotcfg --work-tree=$HOME";
+      fd = "fd --hidden";
+      fp = "realpath";
+      g = "git";
+      reload = "exec $SHELL";
     };
     stateVersion = "24.11";
     username = "jacobhayes";
   };
-
 
   # TODO: Determine whether I really want to 1) manage config files with nix
   # modules directly (which may have limitations), or 2) just have nix
@@ -89,7 +95,7 @@
   programs = {
     direnv = {
       enable = true;
-      nix-direnv.enable = true; # https://github.com/nix-community/nix-direnv
+      nix-direnv.enable = true; # Automatically cache envs: https://github.com/nix-community/nix-direnv
     };
     eza = {
       enable = true;

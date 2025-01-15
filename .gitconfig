@@ -66,8 +66,6 @@
   gpgsign = true
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/ # Use ssh keys, even if cloned with http
-[url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
 [user]
   name = Jacob Hayes
   email = root@jacobhayes.dev

@@ -1,3 +1,5 @@
+BigQuery
+FastAPI
 Firebase
 SQLite
 TODO
@@ -13,9 +15,11 @@ dataframe
 dataset
 datasets
 datetime
+deduplication
 defaultdict
 discoverable
 entrypoint
+env
 erroring
 fullscreen
 github
@@ -28,12 +32,15 @@ iterable
 iterables
 kwargs
 len
+logfire
 metadata
 namespace
+namespaced
 neovim
 noqa
 nvim
 observability
+ok
 parallelization
 parallelize
 param

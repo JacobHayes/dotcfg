@@ -15,9 +15,6 @@
 --     - or maybe just a better way to turn auto formatting off than my .envrc thing
 return {
   -- { import = "lazyvim.plugins.extras.editor.symbols-outline" }, -- TODO: Look into this / learn
-  -- { import = "lazyvim.plugins.extras.lang.markdown" }, -- This seems to always infer the wrong indent (see notes in whitespace.lua) and emit a lot of noise
-  -- { import = "lazyvim.plugins.extras.lang.python-semshi" }, -- errors with python 3.12 type parameter syntax
-  --
   { import = "lazyvim.plugins.extras.ai.copilot" },
   { import = "lazyvim.plugins.extras.ai.copilot-chat" },
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
@@ -27,33 +24,29 @@ return {
   { import = "lazyvim.plugins.extras.lang.docker" },
   { import = "lazyvim.plugins.extras.lang.go" },
   { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "lazyvim.plugins.extras.lang.markdown" },
+  { import = "lazyvim.plugins.extras.lang.nix" },
   { import = "lazyvim.plugins.extras.lang.python" },
   { import = "lazyvim.plugins.extras.lang.rust" },
   { import = "lazyvim.plugins.extras.lang.sql" },
   { import = "lazyvim.plugins.extras.lang.tailwind" },
   { import = "lazyvim.plugins.extras.lang.terraform" },
-  -- { import = "lazyvim.plugins.extras.lang.nix" },
   { import = "lazyvim.plugins.extras.lang.toml" },
   { import = "lazyvim.plugins.extras.lang.typescript" },
   { import = "lazyvim.plugins.extras.lang.yaml" },
   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
+  { import = "lazyvim.plugins.extras.util.dot" },
   -- Install extra language servers not included above
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
         "actionlint",
         "arduino-language-server",
-        "bash-language-server",
-        "codelldb", -- Debugger for rust, etc
+        "biome",
         "css-lsp",
-        "html-lsp",
-        "nil", -- nix
-        "shellcheck",
-        "shfmt",
-        "sqlls",
-      },
-    },
+      })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -63,19 +56,9 @@ return {
         "gitignore",
         "graphql",
         "http",
+        "just",
         "sql",
       })
     end,
-  },
-  -- Disable the default LSP rust-analyzer config, which conflicts with rustaceanvim.mason (see `help rustaceanvim.mason` for more info)
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      setup = {
-        rust_analyzer = function()
-          return true
-        end,
-      },
-    },
   },
 }

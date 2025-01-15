@@ -12,30 +12,41 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-homebrew = {
+    homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
+      inputs.nix-darwin.follows = "darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, darwin, home, nix-homebrew, nixpkgs, }: {
-    # Build darwin flake using: `darwin-rebuild build --flake .#jrh`
-    darwinConfigurations = {
-      jrh = darwin.lib.darwinSystem { 
-        modules = [
-          ./darwin.nix
-          nix-homebrew.darwinModules.nix-homebrew
-          home.darwinModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users = {
-                jacobhayes = import ./home.nix;
+  outputs =
+    inputs@{
+      self,
+      darwin,
+      home,
+      homebrew,
+      nixpkgs,
+    }:
+    {
+      darwinConfigurations = {
+        jrh = darwin.lib.darwinSystem {
+          modules = [
+            ./darwin.nix
+            home.darwinModules.home-manager
+            homebrew.darwinModules.nix-homebrew
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users = {
+                  jacobhayes = import ./home.nix;
+                };
               };
-            };
-	  }
-        ];
-        specialArgs = { inherit inputs; };
+            }
+          ];
+          specialArgs = { inherit inputs; };
+        };
       };
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
-  };
 }

@@ -1,12 +1,16 @@
+set ignore-comments	:= true
+
+NIX_DIR := '.config/nix/'
+
 # Build and activate the current configuration.
-apply ARGS="":
-    darwin-rebuild switch --flake '.#jrh' {{ARGS}}
+nix-apply ARGS="":
+    darwin-rebuild switch --flake "{{NIX_DIR}}" {{ARGS}}
     # Set default shell, until this is resolved: https://github.com/LnL7/nix-darwin/issues/1237
     if [[ "$SHELL" != *fish* ]]; then chsh -s /run/current-system/sw/bin/fish; fi
 
-update:
-    nix flake update
-    just apply
+nix-update:
+    nix flake update --flake "{{NIX_DIR}}"
+    just nix-apply
 
 diff-plists:
   echo "Reading current settings..."
