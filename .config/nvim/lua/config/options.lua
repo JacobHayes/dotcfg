@@ -11,6 +11,12 @@ vim.opt.spelllang = "en_us" -- ... w/ US English
 vim.opt.termsync = false -- scroll faster, at the expense of some "jumps"
 vim.opt.textwidth = 100 -- Start new lines after or re-wrap lines (gw) at 100 characters (may be overridden by autocmds.lua)
 
+vim.filetype.add({
+  pattern = {
+    ["^#!/usr/bin/env -S uv run"] = "python",
+  },
+})
+
 if os.getenv("VIM_AUTOFORMAT") == "false" then
   vim.g.autoformat = false
 end
