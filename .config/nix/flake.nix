@@ -17,10 +17,6 @@
       inputs.nix-darwin.follows = "darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    jujutsu = {
-      url = "github:jj-vcs/jj";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -29,18 +25,12 @@
       darwin,
       home,
       homebrew,
-      jujutsu,
       nixpkgs,
     }:
     {
       darwinConfigurations = {
         jrh = darwin.lib.darwinSystem {
           modules = [
-            {
-              nixpkgs.overlays = [
-                inputs.jujutsu.overlays.default
-              ];
-            }
             ./darwin.nix
             home.darwinModules.home-manager
             homebrew.darwinModules.nix-homebrew
