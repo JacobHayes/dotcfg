@@ -3,7 +3,6 @@
 # https://daiderd.com/nix-darwin/manual/index.html
 {
   inputs,
-  nix-homebrew,
   pkgs,
   ...
 }:
@@ -34,6 +33,7 @@
       "calibre"
       "chatgpt"
       "cold-turkey-blocker" # Requires Rosetta
+      "cursor"
       "ghostty"
       "google-chrome"
       "homerow"
@@ -42,7 +42,6 @@
       "orbstack"
       "postico"
       "raycast"
-      "reader"
       "rectangle"
       "slack"
       "spotify"
@@ -81,11 +80,14 @@
 
   networking.hostName = "jrh";
 
-  nixpkgs.hostPlatform = "aarch64-darwin";
-  nixpkgs.config.allowUnfree = true; # Allow non-OSI licenses (eg: BSL for Terraform)
+  nixpkgs = {
+    config.allowUnfree = true; # Allow non-OSI licenses (eg: BSL for Terraform)
+    hostPlatform = "aarch64-darwin";
+  };
 
   nix = {
     channel.enable = false;
+    enable = true;
     gc = {
       automatic = true;
       options = "--delete-older-than 14d";
@@ -98,7 +100,6 @@
       ];
       use-xdg-base-directories = true; # Use ~/.config/nix instead of home
     };
-    useDaemon = true;
   };
 
   nix-homebrew = {
@@ -110,7 +111,7 @@
     fish.enable = true;
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null; # Set Git commit hash for darwin-version.

@@ -15,6 +15,7 @@
       _1password-cli
       bash
       bat
+      chafa
       coreutils
       ctags
       curl
@@ -38,6 +39,7 @@
       ])
       graphviz
       gzip
+      hyperfine
       jq
       jujutsu
       just
@@ -47,8 +49,10 @@
       less
       luajit
       luarocks
+      ncurses # Pull a newer version of infocmp to export ghostty terminfo
       nixfmt-rfc-style
       nodejs_23
+      nvd
       openssh
       postgresql
       ripgrep
@@ -61,6 +65,7 @@
       uv
       watch
       yq
+      zip
     ];
     sessionPath = [
       "$HOME/.cargo/bin"
