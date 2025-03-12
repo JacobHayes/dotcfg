@@ -15,6 +15,7 @@
       _1password-cli
       bash
       bat
+      cachix
       chafa
       coreutils
       ctags
