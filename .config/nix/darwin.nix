@@ -12,7 +12,7 @@
   };
 
   fonts.packages = with pkgs; [
-    nerd-fonts.monaspace
+    monaspace
   ];
 
   # https://daiderd.com/nix-darwin/manual/index.html#opt-homebrew.enable
@@ -51,8 +51,6 @@
       # "alfred"
       # "anki"
       # "docker"
-      # "font-monaspace"
-      # "font-monaspace-nerd-font"
       # "karabiner-elements"
       # "logitune" # NOTE: This just downloads the installer, which must still be run manually
       # "macwhisper"
