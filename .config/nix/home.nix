@@ -57,6 +57,7 @@
       openssh
       postgresql
       ripgrep
+      rustup
       rye
       sqlite-interactive
       terraform
