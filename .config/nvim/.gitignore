@@ -1,0 +1,5 @@
+lazy-lock.json
+lazyvim.json
+
+# Exclude the license since it does not apply to *our* configuration.
+LICENSE
