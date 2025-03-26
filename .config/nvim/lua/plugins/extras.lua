@@ -14,29 +14,6 @@
 -- - ray-x/navigator.lua - Code analysis & navigation plugin for Neovim (kinda like fancy IDE view ref locations, etc)
 --     - or maybe just a better way to turn auto formatting off than my .envrc thing
 return {
-  -- { import = "lazyvim.plugins.extras.editor.symbols-outline" }, -- TODO: Look into this / learn
-  { import = "lazyvim.plugins.extras.ai.copilot" },
-  { import = "lazyvim.plugins.extras.ai.copilot-chat" },
-  { import = "lazyvim.plugins.extras.coding.mini-surround" },
-  { import = "lazyvim.plugins.extras.editor.dial" },
-  { import = "lazyvim.plugins.extras.lang.angular" },
-  { import = "lazyvim.plugins.extras.lang.clangd" },
-  { import = "lazyvim.plugins.extras.lang.docker" },
-  { import = "lazyvim.plugins.extras.lang.go" },
-  { import = "lazyvim.plugins.extras.lang.json" },
-  { import = "lazyvim.plugins.extras.lang.markdown" },
-  { import = "lazyvim.plugins.extras.lang.nix" },
-  { import = "lazyvim.plugins.extras.lang.python" },
-  { import = "lazyvim.plugins.extras.lang.rust" },
-  { import = "lazyvim.plugins.extras.lang.sql" },
-  { import = "lazyvim.plugins.extras.lang.tailwind" },
-  { import = "lazyvim.plugins.extras.lang.terraform" },
-  { import = "lazyvim.plugins.extras.lang.toml" },
-  { import = "lazyvim.plugins.extras.lang.typescript" },
-  { import = "lazyvim.plugins.extras.lang.yaml" },
-  { import = "lazyvim.plugins.extras.ui.treesitter-context" },
-  { import = "lazyvim.plugins.extras.util.dot" },
-  -- Install extra language servers not included above
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)

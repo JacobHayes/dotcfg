@@ -1,4 +1,4 @@
-set ignore-comments	:= true
+set ignore-comments := true
 
 NIX_DIR := '.config/nix/'
 
@@ -6,7 +6,7 @@ default:
   @just --list
 
 # Build and activate the current configuration.
-nix-apply ARGS="" $HOMEBREW_NO_ENV_HINTS="1":
+nix-apply ARGS="" $HOMEBREW_NO_ANALYTICS="1" $HOMEBREW_NO_ENV_HINTS="1":
     darwin-rebuild switch --flake "{{NIX_DIR}}" {{ARGS}}
     # Set default shell, until this is resolved: https://github.com/LnL7/nix-darwin/issues/1237
     if [[ "$SHELL" != *fish* ]]; then chsh -s /run/current-system/sw/bin/fish; fi

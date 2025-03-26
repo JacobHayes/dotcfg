@@ -35,13 +35,17 @@ vim.keymap.set({ "n", "x" }, "<Up>", "k", { silent = true })
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
--- position search results in center of the page (except when in command mode, which would move down to the next line)
-vim.keymap.set("n", "N", "'nN'[v:searchforward].'zz'", { desc = "Prev search result", expr = true, silent = true })
-vim.keymap.set("n", "n", "'Nn'[v:searchforward].'zz'", { desc = "Next search result", expr = true, silent = true })
-vim.keymap.set("o", "N", "'nN'[v:searchforward]", { desc = "Prev search result", expr = true, silent = true })
-vim.keymap.set("o", "n", "'Nn'[v:searchforward]", { desc = "Next search result", expr = true, silent = true })
-vim.keymap.set("x", "N", "'nN'[v:searchforward].'zz'", { desc = "Prev search result", expr = true, silent = true })
-vim.keymap.set("x", "n", "'Nn'[v:searchforward].'zz'", { desc = "Next search result", expr = true, silent = true })
+-- NOTE: This is buggy - when the buffer is longer than the window, it is a bit jumpy and will
+-- occasionally center on the wrong line (especially with repeated searches) or get interrupted by
+-- other key presses (eg: `dd`) in the middle of the movement and affect the wrong line.
+--
+-- -- position search results in center of the page (except when in command mode, which would move down to the next line)a
+-- vim.keymap.set("n", "N", "'nN'[v:searchforward].'zz'", { desc = "Prev search result", expr = true, silent = true })
+-- vim.keymap.set("n", "n", "'Nn'[v:searchforward].'zz'", { desc = "Next search result", expr = true, silent = true })
+-- vim.keymap.set("o", "N", "'nN'[v:searchforward]", { desc = "Prev search result", expr = true, silent = true })
+-- vim.keymap.set("o", "n", "'Nn'[v:searchforward]", { desc = "Next search result", expr = true, silent = true })
+-- vim.keymap.set("x", "N", "'nN'[v:searchforward].'zz'", { desc = "Prev search result", expr = true, silent = true })
+-- vim.keymap.set("x", "n", "'Nn'[v:searchforward].'zz'", { desc = "Next search result", expr = true, silent = true })
 
 -- shift line(s) up/down
 vim.keymap.set("n", "<S-Down>", ":move +<CR>", { noremap = true, silent = true })

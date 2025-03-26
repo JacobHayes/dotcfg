@@ -1,30 +1,38 @@
+"$schema" = 'https://jj-vcs.github.io/jj/latest/config-schema.json'
+
+[aliases]
+logr = ["log", "--reversed"]
+logrt = ["log", "--reversed", "-r", "trunk()::"]
+rebase-open = ["rebase", "-s", "all:roots(trunk()..open)", "-d", "trunk()"]
+
 [git]
-# NOTE: When working on a repo without all remotes, a warning will be raised when fetching.
-# TODO: Consider adding a PR for this, if I want to dip my toes into rust?
-fetch = ["origin", "upstream"]
+private-commits = "description(glob:'wip:*')" # Prevent pushing commits with these descriptions
+sign-on-push = true
 
 [revset-aliases]
 branches = "trunk() | trunk()..visible_heads()"
-open = "trunk() | (mine() ~ ::trunk()) ~ heads(empty())" # https://github.com/jj-vcs/jj/issues/2943#issuecomment-1925849130
+open = "trunk() | (mine() ~ ::trunk())"         # https://github.com/jj-vcs/jj/issues/2943#issuecomment-1925849130
 
 [signing]
 backend = "ssh"
 backends.ssh.allowed-signers = "~/.ssh/pubkeys/signers"
 key = "~/.ssh/pubkeys/github.pub"
-sign-all = true
 
-[snapshot]
-auto-track = "none()" # Avoid tracking new files by default, eg: scratch files, etc.
+[template-aliases]
+"format_timestamp(timestamp)" = "timestamp.ago()"
 
 [ui]
-default-command = "log"
-# NOTE: See how I like the default diff tool, otherwise review: https://github.com/jj-vcs/jj/blob/main/docs/config.md#generating-diffs-by-external-command
-diff-editor = ":builtin"  # Prefer the builtin tool over nvim (until I know if I like it)
-merge-editor = ":builtin" # Prefer the builtin tool over nvim (until I know if I like it)
+default-command = ["log", "--reversed", "-r", "trunk()..@"]
+diff-editor = ":builtin"
+merge-editor = ":builtin"
 pager = "delta"
+show-cryptographic-signatures = true
 
 [ui.diff]
 format = "git"
+
+[ui.movement]
+edit = true # Default `jj {prev,next}` to `--edit`
 
 [user]
 name = "Jacob Hayes"

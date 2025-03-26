@@ -1,1 +1,2 @@
 .mode qbox
+PRAGMA foreign_keys = ON;
