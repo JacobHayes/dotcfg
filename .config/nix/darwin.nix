@@ -150,9 +150,9 @@
         persistent-others = [ ];
         show-process-indicators = true;
         show-recents = false;
-        wvous-tr-corner = 1; # Disabled
+        wvous-tr-corner = 13; # Lock screen
         wvous-tl-corner = 1; # Disabled
-        wvous-bl-corner = 13; # Lock screen
+        wvous-bl-corner = 1; # Disabled
         wvous-br-corner = 14; # Open quick note
       };
       finder = {
@@ -171,6 +171,9 @@
       };
       # NOTE: Not all settings have direct integrations, but can still be overridden (without validation):
       CustomUserPreferences = {
+        "com.apple.dock" = {
+          showAppExposeGestureEnabled = true;
+        };
         "com.apple.finder" = {
           DesktopViewSettings = {
             GroupBy = "Kind";
