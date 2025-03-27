@@ -36,4 +36,4 @@ edit = true # Default `jj {prev,next}` to `--edit`
 
 [user]
 name = "Jacob Hayes"
-email = "root@jacobhayes.dev"
+email = "jrh@jacobhayes.dev"
