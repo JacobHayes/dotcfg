@@ -27,9 +27,10 @@
       homebrew,
       nixpkgs,
     }:
-    {
-      darwinConfigurations = {
-        jrh = darwin.lib.darwinSystem {
+    let
+      mkDarwinConfig =
+        hostname:
+        darwin.lib.darwinSystem {
           modules = [
             ./darwin.nix
             home.darwinModules.home-manager
@@ -44,8 +45,13 @@
               };
             }
           ];
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs hostname; };
         };
+    in
+    {
+      darwinConfigurations = {
+        jrh = mkDarwinConfig "jrh";
+        jrh-m4 = mkDarwinConfig "jrh-m4";
       };
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };

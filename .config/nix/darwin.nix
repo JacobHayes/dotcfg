@@ -2,6 +2,7 @@
 #
 # https://daiderd.com/nix-darwin/manual/index.html
 {
+  hostname,
   inputs,
   pkgs,
   ...
@@ -73,7 +74,7 @@
     };
   };
 
-  networking.hostName = "jrh";
+  networking.hostName = hostname;
 
   nixpkgs = {
     config.allowUnfree = true; # Allow non-OSI licenses (eg: BSL for Terraform)
