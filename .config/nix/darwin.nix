@@ -44,6 +44,7 @@
       "raycast"
       "rectangle"
       "slack"
+      "utm"
       "spotify"
       #
       # Not needed anymore(?):
