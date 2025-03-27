@@ -37,7 +37,6 @@
       "ghostty"
       "google-chrome"
       "homerow"
-      "microsoft-teams"
       "obsidian"
       "orbstack"
       "postico"
@@ -67,9 +66,6 @@
       "Actions" = 1586435171;
       "Dark Reader for Safari" = 1438243180;
       "Data Jar" = 1453273600;
-      "Microsoft Excel" = 462058435;
-      "Microsoft Outlook" = 985367838;
-      "Microsoft Word" = 462054704;
       "Obsidian Web Clipper" = 6720708363;
       "Tailscale" = 1475387142;
       "Vimari" = 1480933944;
