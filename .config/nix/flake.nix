@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home = {
@@ -17,6 +17,10 @@
       inputs.nix-darwin.follows = "darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    jujutsu = {
+      url = "git+https://github.com/jj-vcs/jj?ref=refs/tags/v0.28.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -25,6 +29,7 @@
       darwin,
       home,
       homebrew,
+      jujutsu,
       nixpkgs,
     }:
     let
@@ -32,6 +37,11 @@
         hostname:
         darwin.lib.darwinSystem {
           modules = [
+            {
+              nixpkgs.overlays = [
+                inputs.jujutsu.overlays.default
+              ];
+            }
             ./darwin.nix
             home.darwinModules.home-manager
             homebrew.darwinModules.nix-homebrew
