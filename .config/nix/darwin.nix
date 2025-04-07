@@ -84,10 +84,13 @@
   nix = {
     channel.enable = false;
     enable = true;
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 14d";
-    };
+    # NOTE: The automatic GC seems to cause issues with code signing / syspolicyd, leading to
+    # various issues: https://github.com/nix-darwin/nix-darwin/issues/1307
+    #
+    # gc = {
+    #   automatic = true;
+    #   options = "--delete-older-than 14d";
+    # };
     optimise.automatic = true; # Optimize the store occasionally
     settings = {
       experimental-features = [
@@ -107,6 +110,10 @@
 
   programs = {
     fish.enable = true;
+    # Opening a terminal when the nix env is broken can fail in ways that make debugging difficult.
+    # To ensure we have an escape hatch, we disable the default bash/nix configuration and configure
+    # Terminal.app to use /bin/bash (see below).
+    zsh.enable = false;
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -202,6 +209,9 @@
           AutoFillFromAddressBook = false;
           AutoFillMiscellaneousForms = false;
           AutoFillPasswords = false;
+        };
+        "com.apple.Terminal" = {
+          Shell = "/bin/zsh"; # Override the default (fish+nix) login shell to ensure we start with a minimal state.
         };
         "com.openai.chat" = {
           desktopAppIconBehavior = "{\"showOnlyInMenuBar\":{}}";
