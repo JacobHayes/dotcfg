@@ -218,6 +218,12 @@
           launchAtLogin = true;
           launcherOpenPosition = "{\"specific\":{\"_0\":{\"bottomRight\":{}}}}";
         };
+        "com.superultra.Homerow" = {
+          "launch-at-login" = 1;
+          "non-search-shortcut" = "\\u2303F";
+          "scroll-shortcut" = "\\u2325J";
+          "show-menubar-icon" = 0;
+        };
         # OrbStack
         "dev.kdrag0n.MacVirt" = {
           global_showMenubarExtra = false;
