@@ -72,14 +72,13 @@
   nix = {
     channel.enable = false;
     enable = true;
-    # NOTE: The automatic GC seems to cause issues with code signing / syspolicyd, leading to
-    # various issues: https://github.com/nix-darwin/nix-darwin/issues/1307
-    #
-    # gc = {
-    #   automatic = true;
-    #   options = "--delete-older-than 14d";
-    # };
-    optimise.automatic = true; # Optimize the store occasionally
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 14d";
+    };
+    # NOTE: The store optimization causes code signing / syspolicyd issues, causing system freezes:
+    # https://github.com/nix-darwin/nix-darwin/issues/1307
+    optimise.automatic = false;
     settings = {
       experimental-features = [
         "flakes"
