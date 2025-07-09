@@ -27,38 +27,28 @@
 
     taps = [
       "1password/tap"
-      "johanhaleby/kubetail"
     ];
     casks = [
       "1password"
       "calibre"
       "chatgpt"
-      "cold-turkey-blocker" # Requires Rosetta
+      "cold-turkey-blocker"
       "cursor"
       "ghostty"
       "google-chrome"
       "homerow"
+      "monitorcontrol"
       "obsidian"
       "orbstack"
       "postico"
       "raycast"
       "rectangle"
       "slack"
-      "utm"
       "spotify"
-      #
-      # Not needed anymore(?):
-      #
-      # "alfred"
-      # "anki"
-      # "docker"
-      # "karabiner-elements"
-      # "logitune" # NOTE: This just downloads the installer, which must still be run manually
-      # "macwhisper"
-      # "monitorcontrol"
-      # "signal"
-      # "vitamin-r"
-      # "zwift"
+      "tailscale-app"
+      "tuple"
+      "utm"
+      "zoom"
     ];
     masApps = {
       # IDs can be found on the share links from the App Store
@@ -68,8 +58,6 @@
       "Dark Reader for Safari" = 1438243180;
       "Data Jar" = 1453273600;
       "Obsidian Web Clipper" = 6720708363;
-      "Tailscale" = 1475387142;
-      "Vimari" = 1480933944;
       "Xcode" = 497799835;
     };
   };

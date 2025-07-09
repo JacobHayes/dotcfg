@@ -48,11 +48,9 @@
       kubetail
       kustomize
       less
-      luajit
-      luarocks
       ncurses # Pull a newer version of infocmp to export ghostty terminfo
       nixfmt-rfc-style
-      nodejs_23
+      nodejs_24
       nvd
       openssh
       postgresql
@@ -142,8 +140,11 @@
     neovim = {
       defaultEditor = true;
       enable = true;
-      extraPython3Packages = ps: with ps; [ pynvim ];
-      withNodeJs = false;
+      extraPackages = [
+        pkgs.luajit
+        pkgs.luarocks
+      ];
+      withNodeJs = true;
       withPython3 = true;
       withRuby = false;
     };
