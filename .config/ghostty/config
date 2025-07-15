@@ -22,6 +22,7 @@ font-feature = "ss09"
 font-feature = "ss10"
 
 keybind = global:alt+grave_accent=toggle_quick_terminal
+keybind = shift+enter=text:\n
 # Swap the default to prefer splitting up/down
 keybind = super+d=new_split:down
 keybind = super+shift+d=new_split:right

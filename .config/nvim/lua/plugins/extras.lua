@@ -15,13 +15,29 @@
 --     - or maybe just a better way to turn auto formatting off than my .envrc thing
 return {
   {
-    "williamboman/mason.nvim",
+    "CopilotC-Nvim/CopilotChat.nvim",
+    opts = {
+      mappings = {
+        show_diff = {
+          full_diff = true,
+        },
+      },
+      sticky = {
+        "#buffer",
+        "#filenames",
+        "$claude-3.7-sonnet",
+      },
+    },
+  },
+  {
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "actionlint",
         "arduino-language-server",
         "biome",
         "css-lsp",
+        "kube-linter",
       })
     end,
   },

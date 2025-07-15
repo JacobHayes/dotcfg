@@ -1,2 +1,2 @@
-.mode qbox
+.mode qbox --wrap 0
 PRAGMA foreign_keys = ON;

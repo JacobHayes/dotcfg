@@ -4,8 +4,14 @@
 /.*_history
 /.CFUserTextEncoding
 /.Trash/
+/.bash_sessions/
 /.cache/
 /.cargo/
+/.claude.json
+/.config/.wrangler/
+/.config/claude/projects/
+/.config/claude/statsig/
+/.config/claude/todos/
 /.config/direnv/lib/
 /.config/fish/completions/
 /.config/fish/conf.d/plugin-*.fish
@@ -21,6 +27,7 @@
 /.cursor/
 /.docker/
 /.dotcfg/
+/.duckdb/
 /.gnupg/
 /.gsutil/
 /.ipython/
@@ -35,6 +42,7 @@
 /.rye/
 /.ssh/
 /.ssh/1Password/
+/.streamlit/
 /.terraform.d/
 /.viminfo
 /.zcompdump

@@ -10,5 +10,7 @@
     "window.autoDetectColorScheme": true,
     "window.commandCenter": true,
     "workbench.preferredDarkColorTheme": "Cursor Dark Midnight",
-    "workbench.preferredLightColorTheme": "Solarized Light"
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "editor.accessibilitySupport": "off",
+    "cursor.diffs.useCharacterLevelDiffs": true
 }

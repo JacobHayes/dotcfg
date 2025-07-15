@@ -17,9 +17,12 @@ api
 arm64
 artigraph
 asyncio
+auth
 backend
 balancer
+boolean
 config
+configs
 coroutine
 dataframe
 dataset
@@ -80,6 +83,7 @@ shorthands
 sqlalchemy
 sqlite
 str
+subclasses
 subscripted
 subscripting
 timestamp

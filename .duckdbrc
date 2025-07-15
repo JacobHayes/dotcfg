@@ -1,0 +1,8 @@
+install ui;
+load ui;
+
+install spatial;
+load spatial;
+
+.maxrows 100
+.timer on
