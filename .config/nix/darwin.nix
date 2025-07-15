@@ -106,8 +106,9 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
+    primaryUser = "jacobhayes";
+
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null; # Set Git commit hash for darwin-version.
-    # TODO: Look into additional system settings to configure.
     defaults = {
       NSGlobalDomain = {
         "com.apple.springing.delay" = .5;
@@ -163,6 +164,14 @@
       };
       # NOTE: Not all settings have direct integrations, but can still be overridden (without validation):
       CustomUserPreferences = {
+        NSGlobalDomain = {
+          AppleFirstWeekday = {
+            gregorian = 2;
+          };
+          AppleICUDateFormatStrings = {
+            "1" = "y-MM-dd";
+          };
+        };
         "com.apple.dock" = {
           showAppExposeGestureEnabled = true;
         };
